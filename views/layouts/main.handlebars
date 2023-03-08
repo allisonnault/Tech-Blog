@@ -12,16 +12,23 @@
 </head>
 
 <body>
+  <header>
+    <h1 class="text-center">The Tech Blog</h1>
+  </header>
   <nav class="navbar bg-body-tertiary">
   <div class="container">
     <div>
-    <a class="navbar-brand" href="#">Home</a>
-    <a class="navbar-brand" href="#">Dashboard</a>
-    <a class="navbar-brand" href="#">Login</a>
+    <a class="navbar-brand" href="/">Home</a>
+    {{#if loggedIn}}
+    <button id="logout" class="btn-no-style">Logout</button>
+    {{else}}
+    <a class="navbar-brand" href="/login">Login</a>
+    {{/if}}
+    <a class="navbar-brand" href="/user">Dashboard</a>
     </div>
   </div>
 </nav>
-<h1 class="text-center">The Tech Blog</h1>
+
   
     {{{ body }}}
   

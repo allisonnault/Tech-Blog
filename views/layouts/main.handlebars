@@ -19,11 +19,11 @@
   <div class="container">
     <div>
     <a class="navbar-brand" href="/">Home</a>
-    {{!-- {{#if loggedIn}} --}}
+    {{#if loggedIn}}
     <button id="logout" class="btn-no-style">Logout</button>
-    {{!-- {{else}} --}}
+    {{else}}
     <a class="navbar-brand" href="/login">Login</a>
-    {{!-- {{/if}} --}}
+    {{/if}}
     <a class="navbar-brand" href="/dashboard">Dashboard</a>
     </div>
   </div>
@@ -33,9 +33,9 @@
     {{{ body }}}
   </div>
  </main>
- {{!-- {{#if loggedIn}} --}}
+ {{#if loggedIn}}
  <script src="/js/logout.js"></script>
- {{!-- {{/if}} --}}
+ {{/if}}
 </body>
 
 </html>

@@ -7,6 +7,7 @@ Post.init(
   {
     title: DataTypes.STRING,
     body: DataTypes.STRING,
+    user_id: DataTypes.INTEGER,
   },
   {
     sequelize,

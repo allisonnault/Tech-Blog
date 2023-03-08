@@ -1,29 +1,33 @@
- <div class="row">
-    <div class="column">
-         <ol class="list-group">
-        {{#each posts as |post|}}
-        <li class="list-group-item">
-            <h2>{{post.title}}</h2>
-            {{post.body}}
-        </li>
-        {{/each}}
-    </ol>
+
+<div class="row">
+  <div class="container-fluid">
+    <h3>My Posts:</h3>
+    {{#each posts as |post|}}
+    <div class="card mb-3">
+        <div class="card-body">
+            <h5 class="card-title">{{post.title}}</h5>
+            <p class="card-text">{{post.body}}</p>
+            <button data-id="{{post.id}}" id="edit-post" type="button" class="btn btn-primary">Edit</button>
+            <button data-id="{{post.id}}" id="delete-post" type="button" class="btn btn-primary">Delete</button>
+        </div>
     </div>
-    <div class="column">
-        <form class="new-post-form">
-  <div class="mb-3">
-    <label for="postTitle" class="form-label">Title</label>
-    <input type="title" class="form-control" id="title">
-    <div id="postTitle" class="form-text">Title</div>
+    {{/each}}
+</div>
+  <div class="column">
+    <form class="new-post-form">
+      <div class="mb-3">
+        <label for="postTitle" class="form-label">Title</label>
+        <input type="title" class="form-control" id="title">
+        <div id="postTitle" class="form-text">Title</div>
+      </div>
+      <div class="mb-3">
+        <label for="newPost" class="form-label">Post</label>
+        <input type="post" class="form-control" id="newPost">
+        <div id="blogPost" class="form-text">add post</div>
+      </div>
+      <button id="submit" type="submit" class="btn btn-primary">Submit</button>
+    </form>
   </div>
-  <div class="mb-3">
-    <label for="newPost" class="form-label">Post</label>
-    <input type="post" class="form-control" id="newPost">
-    <div id="blogPost" class="form-text">add post</div>
-  </div>
-  <button id="submit" type="submit" class="btn btn-primary">Submit</button>
-</form>
-    </div>
- </div>
- 
- <script src="/js/post.js"></script>
+</div>
+
+<script src="/js/post.js"></script>

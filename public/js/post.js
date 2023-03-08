@@ -20,4 +20,13 @@ const newPostHandler = async (event) => {
     }
 };
 
+$('#delete-post').on('click', (e)=>{
+    const id = e.target.dataset.id;
+    fetch(`/api/posts/${id}`, {
+        method: 'DELETE'
+    })
+    .then(res => res.json())
+    .then(data => data ? window.location.reload() : alert("something isn't working"))
+});
+
 document.querySelector('.new-post-form').addEventListener('submit', newPostHandler);

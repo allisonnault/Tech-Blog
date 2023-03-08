@@ -19,21 +19,7 @@ router.get('/login', (req, res) => {
     }
     res.render('login')
 })
-// router.get('/user', async (req, res) => {
-//     try {
-//         console.log(req.body);
-//         const userData = await User.findOne({
-//             where: {
-//                 username: Session.username
-//             },
-//         });
-//         const user = userData.map((users)=> users.get({ plain: true }));
-//         res.render('dashboard', { user });
 
-//     } catch (err) {
-//         res.status(500).json(err);
-//     }
-// });
 
 
 

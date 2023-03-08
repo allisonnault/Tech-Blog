@@ -1,9 +1,15 @@
 <div class="container-fluid blog-posts">
-<ol class="list-group">
-    {{#each posts as |post|}}
-    <li class="list-group-item">
-        <h2>{{post.title}}</h2>
-        {{post.body}}</li>
-    {{/each}}
-</ol>
+    <ol class="list-group">
+        {{#each posts as |post|}}
+        <li class="list-group-item">
+            <h2>{{post.title}}</h2>
+            {{post.body}}
+        </li>
+        {{/each}}
+    </ol>
+</div>
+<div class="row">
+    <div class="container">
+        <button class="btn"><a href="/login">Login to contribute</a></button>
+    </div>
 </div>

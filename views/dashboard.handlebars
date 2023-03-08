@@ -1,5 +1,29 @@
-<div>
-    {{#each posts}}
-    <p>{{title}}</p>
-    {{/each}}
-</div>
+ <div class="row">
+    <div class="column">
+         <ol class="list-group">
+        {{#each posts as |post|}}
+        <li class="list-group-item">
+            <h2>{{post.title}}</h2>
+            {{post.body}}
+        </li>
+        {{/each}}
+    </ol>
+    </div>
+    <div class="column">
+        <form class="new-post-form">
+  <div class="mb-3">
+    <label for="postTitle" class="form-label">Title</label>
+    <input type="title" class="form-control" id="title">
+    <div id="postTitle" class="form-text">Title</div>
+  </div>
+  <div class="mb-3">
+    <label for="newPost" class="form-label">Post</label>
+    <input type="post" class="form-control" id="newPost">
+    <div id="blogPost" class="form-text">add post</div>
+  </div>
+  <button id="submit" type="submit" class="btn btn-primary">Submit</button>
+</form>
+    </div>
+ </div>
+ 
+ <script src="/js/post.js"></script>

@@ -12,7 +12,7 @@ const loginFormHandler = async (event) => {
       });
   
       if (response.ok) {
-        document.location.replace('/user');
+        document.location.replace('/dashboard');
       } else {
         alert('Failed to log in');
       }
@@ -33,7 +33,7 @@ const loginFormHandler = async (event) => {
       });
   
       if (response.ok) {
-        document.location.replace('api/user');
+        document.location.replace('/dashboard');
       } else {
         alert('Failed to sign up.');
       }

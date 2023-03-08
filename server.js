@@ -1,10 +1,12 @@
 
 const express = require('express');
 const session = require('express-session');
-const { engine } = require('express-handlebars');
+const exphbs = require('express-handlebars');
 const routes = require('./controllers');
 const sequelize = require('./config/config');
 const SequelizeStore = require('connect-session-sequelize')(session.Store)
+const helpers = require('./utils/helpers');
+
 const app = express();
 const PORT = process.env.PORT || 3001;
 
@@ -19,9 +21,9 @@ const sess = {
 };
 
 app.use(session(sess));
-
+const hbs = exphbs.create({helpers});
 // Inform Express.js which template engine we're using
-app.engine('handlebars', engine());
+app.engine('handlebars', hbs.engine);
 app.set('view engine', 'handlebars');
 
 

@@ -48,12 +48,14 @@ const loginFormHandler = async (event) => {
     .querySelector('.signup-form')
     .addEventListener('submit', signupFormHandler);
   
-$('#comment').on('click', (e) => {
-  console.log(e.target.dataset.id);
-  const id = e.target.dataset.id;
-  fetch(`/api/posts/${id}`, {
-    method: 'GET'
-  })
-  .then(res => res.json())
-  .then(data => data? document.location.replace('/api/posts/:id') : alert("something isn't working"))
-});
+    $('.comment').on('click', (e) => {
+      console.log(e.target.dataset.id);
+      const id = e.target.dataset.id;
+      document.location.replace(`/api/posts/${id}`)
+      // const id = e.target.dataset.id;
+      // fetch(`/api/posts/${id}`, {
+      //   method: 'GET'
+      // })
+      // .then(res => res.json())
+      // .then(data => data? document.location.replace('/api/posts/:id') : alert("something isn't working"))
+    });

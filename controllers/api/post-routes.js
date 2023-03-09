@@ -25,7 +25,7 @@ router.get('/:id', async (req, res) => {
       },
       include: [{
         model: Comment,
-        required: true
+        required: false
       }]
     });
   // const postData = post.map((data) => data.get({ plain: true }));

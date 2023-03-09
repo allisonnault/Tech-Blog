@@ -8,9 +8,9 @@ $('#submit').on('click', (e) => {
         body: JSON.stringify({ id, comment }),
         headers: { 'Content-Type': 'application/json' },
     });
-    if (response) {
-        document.location.reload();
-    } else {
-        alert('failed to add comment');
-    }
+    // if (response) {
+    //     document.location.reload();
+    // } else {
+    //     alert('failed to add comment');
+    // }
 });

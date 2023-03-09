@@ -22,14 +22,20 @@ router.get('/:id', async (req, res) => {
     const post = await Post.findOne({
       where: {
         id: req.params.id
-      }
+      },
+      include: [{
+        model: Comment,
+        required: true
+      }]
     });
    const postData = {
     id: post.dataValues.id,
     title: post.dataValues.title,
     body: post.dataValues.body,
-    userId: post.dataValues.userId
+    userId: post.dataValues.userId,
+    comments: post.dataValues.comments
    }
+   console.log(postData);
     res.render('post', { postData, loggedin: req.session.loggedIn });
   } catch (err) {
     res.status(500).json(err);

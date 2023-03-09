@@ -11,7 +11,7 @@
         <div class="card-body">
             <p class="card-text">{{comment.body}}</p>
             <p class="card-text">{{user.username}}</p>
-            <button data-id="{{post.id}}" type="button" class="btn btn-primary comment">Comment</button>
+            <button type="button" class="btn btn-primary comment">Comment</button>
         </div>
     </div>
 {{/each}}
@@ -21,9 +21,9 @@
     <form class="new-comment-form">
       <div class="mb-3">
         <label for="comment" class="form-label">Comment</label>
-        <input type="title" class="form-control" id="comment">
+        <input type="title" class="form-control" id="commentBody">
       </div>
-      <button id="submit" type="submit" class="btn btn-primary">Submit</button>
+      <button data-id="{{postData.id}}" id="submit" type="submit" class="btn btn-primary">Submit</button>
     </form>
     </div>
   </div>

@@ -1,21 +1,16 @@
-const newCommentHandler = async (event) => {
-    event.preventDefault();
-
-    const body = document.getElementById('comment').value.trim();
-    // const postID = window.location;
-    // console.log(postID);
-
-    if (body) {
-        const response = await fetch('/api/comment', {
-            method: 'POST',
-            body: JSON.stringify({ body }),
-            headers: { 'Content-Type': 'application/json' },
-        });
-        if (response.ok) {
-            document.location.reload();
-        } else {
-            alert('Failed to add comment');
-        }
+$('#submit').on('click', (e) => {
+    e.preventDefault();
+    const id = e.target.dataset.id;
+    const comment = $('#commentBody').val();
+    console.log(id+" "+comment);
+    fetch('/api/comments', {
+        method: 'POST',
+        body: JSON.stringify({ id, comment }),
+        headers: { 'Content-Type': 'application/json' },
+    });
+    if (response) {
+        document.location.reload();
+    } else {
+        alert('failed to add comment');
     }
-};
-  
+});

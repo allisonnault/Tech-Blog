@@ -16,15 +16,26 @@ router.post('/', async (req, res) => {
   }
 });
 
-router.get('/:id', (req, res) => {
-  Post.findOne({
-    where: {
-      id: req.params.id
-    }
-  })
-  .then(data => res.json(data))
-  .catch(err => res.status(500).json(err))
+
+router.get('/:id', async (req, res) => {
+  try {
+    const post = await Post.findOne({
+      where: {
+        id: req.params.id
+      }
+    });
+   const postData = {
+    id: post.dataValues.id,
+    title: post.dataValues.title,
+    body: post.dataValues.body,
+    userId: post.dataValues.userId
+   }
+    res.render('post', { postData, loggedin: req.session.loggedIn });
+  } catch (err) {
+    res.status(500).json(err);
+  }
 });
+
 
 router.delete('/:id', (req, res) => {
   Post.destroy({

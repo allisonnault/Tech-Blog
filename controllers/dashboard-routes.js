@@ -15,7 +15,7 @@ router.get('/', withAuth, async (req, res) => {
 
         res.render('dashboard', { posts, loggedIn: req.session.loggedIn })
     } catch (err) {
-        res.redirect('login');
+        res.redirect('homepage');
     }
 });
 

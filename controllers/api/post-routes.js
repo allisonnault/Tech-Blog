@@ -7,7 +7,11 @@ router.post('/', async (req, res) => {
     const newPost = await Post.create({
         title: req.body.title,
         body: req.body.postBody,
-        userId: req.session.userId
+        userId: req.session.userId,
+        include: [{
+          model: User,
+          required: false
+        }]
     });
     res.status(200).json(newPost);
   } catch (err) {
@@ -28,7 +32,6 @@ router.get('/:id', async (req, res) => {
         required: false
       }]
     });
-  // const postData = post.map((data) => data.get({ plain: true }));
    const postData = {
     id: post.dataValues.id,
     title: post.dataValues.title,

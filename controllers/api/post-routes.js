@@ -28,6 +28,7 @@ router.get('/:id', async (req, res) => {
         required: true
       }]
     });
+  // const postData = post.map((data) => data.get({ plain: true }));
    const postData = {
     id: post.dataValues.id,
     title: post.dataValues.title,
@@ -35,7 +36,7 @@ router.get('/:id', async (req, res) => {
     userId: post.dataValues.userId,
     comments: post.dataValues.comments
    }
-   console.log(postData);
+   
     res.render('post', { postData, loggedin: req.session.loggedIn });
   } catch (err) {
     res.status(500).json(err);

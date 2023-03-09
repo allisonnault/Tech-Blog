@@ -16,6 +16,16 @@ router.post('/', async (req, res) => {
   }
 });
 
+router.get('/:id', (req, res) => {
+  Post.findOne({
+    where: {
+      id: req.params.id
+    }
+  })
+  .then(data => res.json(data))
+  .catch(err => res.status(500).json(err))
+});
+
 router.delete('/:id', (req, res) => {
   Post.destroy({
     where: {

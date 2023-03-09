@@ -1,2 +1,31 @@
-<p>{{postData.body}}</p>
-<p>hello</p>
+<div class="container-fluid single-post">
+     <div class="card mb-3">
+        <div class="card-body">
+            <h5 class="card-title">{{postData.title}}</h5>
+            <p class="card-text">{{postData.body}}</p>
+        </div>
+    </div>
+ </div>
+ {{#each comments as |comment|}}
+ <div class="card mb-3">
+        <div class="card-body">
+            <p class="card-text">{{comment.body}}</p>
+            <p class="card-text">{{user.username}}</p>
+            <button data-id="{{post.id}}" type="button" class="btn btn-primary comment">Comment</button>
+        </div>
+    </div>
+{{/each}}
+ <div class="container-fluid row">
+    <div class="column">
+      <h3>Add a Comment:</h3>
+    <form class="new-comment-form">
+      <div class="mb-3">
+        <label for="comment" class="form-label">Comment</label>
+        <input type="title" class="form-control" id="comment">
+      </div>
+      <button id="submit" type="submit" class="btn btn-primary">Submit</button>
+    </form>
+    </div>
+  </div>
+
+  <script src="/js/comment.js"></script>

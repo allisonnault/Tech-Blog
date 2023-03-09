@@ -1,18 +1,52 @@
 <div class="container-fluid blog-posts">
+    {{#if loggedIn}}
     {{#each posts as |post|}}
     <div class="card mb-3">
         <div class="card-body">
             <h5 class="card-title">{{post.title}}</h5>
             <p class="card-text">{{post.body}}</p>
-            {{#if loggedIn}}
             <button data-id="{{post.id}}" id="comment" type="button" class="btn btn-primary">Comment</button>
-            {{/if}}
         </div>
     </div>
     {{/each}}
-</div>
-<div class="row">
-    <div class="container">
-
+    {{else}}
+    <div class="row justify-space-between-md">
+        <div class="row justify-content-center">
+            <div class="login-card col">
+                <h2 class="page-title">Login</h2>
+                <form class="form login-form">
+                    <div class="form-group">
+                        <label for="user-login">Username:</label>
+                        <input class="form-input" type="text" id="user-login" />
+                    </div>
+                    <div class="form-group">
+                        <label for="password-login">Password:</label>
+                        <input class="form-input" type="password" id="password-login" />
+                    </div>
+                    <div class="form-group">
+                        <button class="btn btn-primary" type="submit">login</button>
+                    </div>
+                </form>
+            </div>
+            <div class="login-card col">
+                <h2 class="page-title">Signup</h2>
+                <form class="form signup-form">
+                    <div class="form-group">
+                        <label for="username-signup">Username:</label>
+                        <input class="form-input" type="text" id="username-signup" />
+                    </div>
+                    <div class="form-group">
+                        <label for="password-signup">Password:</label>
+                        <input class="form-input" type="password" id="password-signup" />
+                    </div>
+                    <div class="form-group">
+                        <button class="btn btn-primary" type="submit">signup</button>
+                    </div>
+                </form>
+            </div>
+        </div>
     </div>
+
+    {{/if}}
+    <script src="./js/login.js"></script>
 </div>

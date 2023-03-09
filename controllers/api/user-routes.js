@@ -33,13 +33,13 @@ router.post('/login', async (req, res) => {
             return;
         }
         console.log(user.username);
-        // const validPassword = user.checkPassword(req.body.password);
+        const validPassword = user.checkPassword(req.body.password);
 
-        // if (!validPassword) {
-        //     console.log("invalid password");
-        //     res.status(400).json({ message: 'No user account found!' });
-        //     return;
-        // }
+        if (!validPassword) {
+            console.log("invalid password");
+            res.status(400).json({ message: 'No user account found!' });
+            return;
+        }
         req.session.save(() => {
             req.session.userId = user.id;
             req.session.username = user.username;

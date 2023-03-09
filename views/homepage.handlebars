@@ -1,15 +1,20 @@
 <div class="container-fluid blog-posts">
-    <ol class="list-group">
-        {{#each posts as |post|}}
-        <li class="list-group-item">
-            <h2>{{post.title}}</h2>
-            {{post.body}}
-        </li>
-        {{/each}}
-    </ol>
+    {{#each posts as |post|}}
+    <div class="card mb-3">
+        <div class="card-body">
+            <h5 class="card-title">{{post.title}}</h5>
+            <p class="card-text">{{post.body}}</p>
+            {{#if loggedIn}}
+            <button data-id="{{post.id}}" id="comment" type="button" class="btn btn-primary">Comment</button>
+            {{!-- {{else}}
+            <button class="btn"><a href="/login">Login to contribute</a></button> --}}
+            {{/if}}
+        </div>
+    </div>
+    {{/each}}
 </div>
 <div class="row">
     <div class="container">
-        <button class="btn"><a href="/login">Login to contribute</a></button>
+
     </div>
 </div>

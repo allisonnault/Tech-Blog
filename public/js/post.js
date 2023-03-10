@@ -29,4 +29,10 @@ $('#delete-post').on('click', (e)=>{
     .then(data => data ? window.location.reload() : alert("something isn't working"))
 });
 
+$('#edit-post').on('click', (e) => {
+    const id = e.target.dataset.id;
+    window.location.replace(`/dashboard/${id}`);
+})
+
+
 document.querySelector('.new-post-form').addEventListener('submit', newPostHandler);

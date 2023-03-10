@@ -9,12 +9,6 @@ Comment.init(
       type: DataTypes.STRING,
       allowNull: false
     },
-    // postId: {
-    //   type: DataTypes.INTEGER
-    // },
-    // userId: {
-    //   type: DataTypes.INTEGER
-    // }
   },
   {
     sequelize,

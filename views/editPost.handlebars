@@ -1,0 +1,16 @@
+<br><br><br>
+<div class="container">
+    <form data-id="{{post.id}}" class="editPostForm">
+        <div class="mb-3">
+            <label for="editTitle" class="form-label">Title:</label>
+            <input type="title" class="form-control" id="editPostTitle" value="{{post.title}}">
+        </div>
+        <div class="mb-3">
+            <label for="editBody" class="form-label">Body:</label>
+            <input class="form-control" id="editPostBody" rows="3" value="{{post.body}}"></input>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+</div>
+
+<script src="/js/editPost.js"></script>

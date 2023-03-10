@@ -11,8 +11,10 @@
     </div>
     {{/each}}
     {{else}}
+    <br><br><br>
     <div class="row justify-space-between-md">
-        <div class="row justify-content-center">
+        <div class="row justify-content-evenly">
+            <div class="col-4">
             <div class="login-card col">
                 <h2 class="page-title">Login</h2>
                 <form class="form login-form">
@@ -29,6 +31,8 @@
                     </div>
                 </form>
             </div>
+            </div>
+            <div class="col-4">
             <div class="login-card col">
                 <h2 class="page-title">Signup</h2>
                 <form class="form signup-form">
@@ -44,6 +48,7 @@
                         <button class="btn btn-primary" type="submit">signup</button>
                     </div>
                 </form>
+            </div>
             </div>
         </div>
     </div>

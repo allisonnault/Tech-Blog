@@ -11,7 +11,7 @@ router.post('/', async (req, res) => {
         include: [{
           model: User,
           required: false
-        }]
+        }],
     });
     res.status(200).json(newPost);
   } catch (err) {
@@ -27,19 +27,19 @@ router.get('/:id', async (req, res) => {
       where: {
         id: req.params.id
       },
-      include: [{
-        model: Comment,
-        required: false
-      }]
+      include: [
+        {model: Comment,
+        required: false}]
     });
-   const postData = {
+   const postData = 
+   {
     id: post.dataValues.id,
     title: post.dataValues.title,
     body: post.dataValues.body,
     userId: post.dataValues.userId,
     comments: post.dataValues.comments
-   }
-   
+  }
+   console.log(postData.comments);
     res.render('post', { postData, loggedin: req.session.loggedIn });
   } catch (err) {
     res.status(500).json(err);

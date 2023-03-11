@@ -2,13 +2,42 @@
   <div class="container-fluid row">
     <h3>My Posts:</h3>
     {{#each posts as |post|}}
+    <div>
     <div class="card mb-3">
       <div class="card-body">
         <h5 class="card-title">{{post.title}}</h5>
         <p class="card-text">{{post.body}}</p>
-        <button data-id="{{post.id}}" id="edit-post" type="button" class="btn btn-primary">Edit</button>
+        <p class="card-text">{{format_date post.createdAt}}</p>
+        <button data-id="{{post.id}}" id="edit-post" type="button" class="btn btn-primary" data-bs-toggle="modal"
+          data-bs-target="#editModal-{{post.id}}">Edit</button>
         <button data-id="{{post.id}}" id="delete-post" type="button" class="btn btn-primary">Delete</button>
       </div>
+    </div>
+        <!-- Modal -->
+    <div data-id="{{post.id}}" class="modal fade" id="editModal-{{post.id}}" tabindex="-1" aria-labelledby="editModalLabel"
+      aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="editModalLabel">Edit Post:</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <form data-id="{{post.id}}" class="editPostForm">
+              <div class="mb-3">
+                <input class="form-control" id="editPostTitle-{{post.id}}" rows="3" value="{{post.title}}"></input>
+                <input class="form-control" id="editPostBody-{{post.id}}" rows="3" value="{{post.body}}"></input>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="submit" class="btn btn-primary">Save changes</button>
+              </div>
+            </form>
+          </div>
+
+        </div>
+      </div>
+    </div>
     </div>
     {{/each}}
   </div>
@@ -19,12 +48,10 @@
       <div class="mb-3">
         <label for="postTitle" class="form-label">Title</label>
         <input type="title" class="form-control" id="title">
-        <div id="postTitle" class="form-text">Title</div>
       </div>
       <div class="mb-3">
         <label for="newPost" class="form-label">Post</label>
-        <input type="post" class="form-control" id="newPost">
-        <div id="blogPost" class="form-text">add post</div>
+        <textarea type="post" class="form-control" id="newPost" rows="3"></textarea>
       </div>
       <button id="submit" type="submit" class="btn btn-primary">Submit</button>
     </form>

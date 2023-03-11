@@ -23,23 +23,18 @@ router.post('/', async (req, res) => {
 
 router.get('/:id', async (req, res) => {
   try {
-    const post = await Post.findOne({
-      where: {
-        id: req.params.id
-      },
+    const post = await Post.findByPk(req.params.id, {
       include: [
-        {model: Comment,
-        required: false}]
-    });
-   const postData = 
-   {
-    id: post.dataValues.id,
-    title: post.dataValues.title,
-    body: post.dataValues.body,
-    userId: post.dataValues.userId,
-    comments: post.dataValues.comments
-  }
-   console.log(postData.comments);
+        {
+          model: User
+        },
+        {
+          model: Comment,
+          include: User
+        }
+      ]
+    })
+   const postData = post.get({ plain: true });
     res.render('post', { postData, loggedin: req.session.loggedIn });
   } catch (err) {
     res.status(500).json(err);

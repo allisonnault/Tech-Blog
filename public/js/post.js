@@ -29,10 +29,26 @@ $('#delete-post').on('click', (e)=>{
     .then(data => data ? window.location.reload() : alert("something isn't working"))
 });
 
-$('#edit-post').on('click', (e) => {
+$('.editPostForm').on('submit', (e) => {
+    e.preventDefault();
+    console.log(e.target.dataset.id);
     const id = e.target.dataset.id;
-    window.location.replace(`/dashboard/${id}`);
-})
+    const title = $(`#editPostTitle-${id}`).val().trim();
+    const body = $(`#editPostBody-${id}`).val().trim();
+
+   fetch(`/dashboard/${id}`, {
+        method: 'PUT',
+        body: JSON.stringify({ id, title, body }),
+        headers: { 'Content-Type': 'application/json' },
+    })
+    .then(res => res.json())
+    window.location.reload();
+    window.location.replace('/dashboard');
+});
+// $('#edit-post').on('click', (e) => {
+//     const id = e.target.dataset.id;
+//     window.location.replace(`/dashboard/${id}`);
+// })
 
 
 document.querySelector('.new-post-form').addEventListener('submit', newPostHandler);

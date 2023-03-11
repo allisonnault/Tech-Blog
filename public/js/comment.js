@@ -7,6 +7,6 @@ $('#submit').on('click', (e) => {
         body: JSON.stringify({ id, comment }),
         headers: { 'Content-Type': 'application/json' },
     });
-    window.location.reload();
+    window.location.replace(`/api/posts/${id}`);
 
 });

@@ -1,5 +1,5 @@
 <div class="container-fluid single-post">
-  <div class="card mb-3">
+  <div class="card mb-3 shadow">
     <div class="card-body">
       <h5 class="card-title">{{postData.title}}</h5>
       <p class="card-text">{{postData.body}}</p>
@@ -10,15 +10,15 @@
 </div>
 
 {{!-- add comment: --}}
-<div class="container-fluid">
+<div class="container">
   <div class="input-group mb-5 mt-5">
     <input type="text" class="form-control" placeholder="Add a comment..." aria-label="Add a comment..."
       id="commentBody">
-    <button data-id="{{postData.id}}" id="submit" type="submit" class="btn  btn-outline-secondary">Submit</button>
+    <button data-id="{{postData.id}}" id="submit" type="submit" class="btn  btn-primary">Submit</button>
   </div>
 </div>
 {{!-- Comments --}}
-<div class="container-fluid">
+<div class="container">
   <h5>Comments:</h5>
   {{#each postData.comments as |comment|}}
   <div class="card mb-3">

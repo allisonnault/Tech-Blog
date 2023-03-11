@@ -31,7 +31,6 @@ $('#delete-post').on('click', (e)=>{
 
 $('.editPostForm').on('submit', (e) => {
     e.preventDefault();
-    console.log(e.target.dataset.id);
     const id = e.target.dataset.id;
     const title = $(`#editPostTitle-${id}`).val().trim();
     const body = $(`#editPostBody-${id}`).val().trim();
@@ -45,10 +44,6 @@ $('.editPostForm').on('submit', (e) => {
     window.location.reload();
     window.location.replace('/dashboard');
 });
-// $('#edit-post').on('click', (e) => {
-//     const id = e.target.dataset.id;
-//     window.location.replace(`/dashboard/${id}`);
-// })
 
 
 document.querySelector('.new-post-form').addEventListener('submit', newPostHandler);

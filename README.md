@@ -3,9 +3,20 @@ Challenge 14: Model-View-Controller (MVC)
 
 [deployed application](https://mighty-spire-24724.herokuapp.com/)
 
+
 ## Description
     
 I created a CMA_style blog site, where users can publish their blog psots and coment on other users posts as well. This application follows the MVC paradigm in its acrchitectural structre, using Handlebars.js as the templating language, Sequelize as the ORM, and the express-session npm package for authentication.
+
+![login/signup screen](./images/Screenshot%202023-03-11%20at%206.41.53%20PM.png)
+
+![dashboard view](./images/Screenshot%202023-03-11%20at%206.43.24%20PM.png)
+
+![edit post view](./images/Screenshot%202023-03-11%20at%206.43.33%20PM.png)
+
+![homepage view](./images/Screenshot%202023-03-11%20at%206.43.48%20PM.png)
+
+![post detial view](./images/Screenshot%202023-03-11%20at%206.44.10%20PM.png)
     
 ## Table of Contents
     

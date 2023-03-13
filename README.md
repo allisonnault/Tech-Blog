@@ -6,7 +6,7 @@ Challenge 14: Model-View-Controller (MVC)
 
 ## Description
     
-I created a CMA_style blog site, where users can publish their blog psots and coment on other users posts as well. This application follows the MVC paradigm in its acrchitectural structre, using Handlebars.js as the templating language, Sequelize as the ORM, and the express-session npm package for authentication.
+I created a CMA_style blog site, where users can publish their blog psots and coment on other users posts as well. This application follows the MVC paradigm in its architectural structure, using Handlebars.js as the templating language, Sequelize as the ORM, and the express-session npm package for authentication.
 
 ![login/signup screen](./images/Screenshot%202023-03-11%20at%206.41.53%20PM.png)
 
